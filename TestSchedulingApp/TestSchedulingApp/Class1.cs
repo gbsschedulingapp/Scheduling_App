@@ -8,10 +8,11 @@ namespace TestSchedulingApp
 {
     class Class1
     {
-<<<<<<< Updated upstream
+		// this is testing again
+/*<<<<<<< Updated upstream
         //// This is the Chaange
 =======
 		// this is testing 
->>>>>>> Stashed changes
+>>>>>>> Stashed changes*/
     }
 }
