@@ -8,11 +8,6 @@ namespace TestSchedulingApp
 {
     class Class1
     {
-		// this is testing again
-/*<<<<<<< Updated upstream
-        //// This is the Chaange
-=======
-		// this is testing 
->>>>>>> Stashed changes*/
+		System.Console.WriteLine("HelloWorld");
     }
 }
