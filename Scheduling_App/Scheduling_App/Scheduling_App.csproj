@@ -4473,6 +4473,7 @@
     <Content Include="StaticFiles\vendors\validator\.bower.json" />
     <Content Include="StaticFiles\vendors\validator\README.md" />
     <Content Include="StaticFiles\vendors\validator\validator.jquery.json" />
+    <Content Include="Views\Shared\_LoginLayout.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
