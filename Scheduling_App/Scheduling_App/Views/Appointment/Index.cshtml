@@ -1,0 +1,102 @@
+﻿@model IEnumerable<Scheduling_App.Models.User>
+
+@{
+    ViewBag.Title = "Index Appointments";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Appointments</h2>
+
+<p>
+    @Html.ActionLink("Create New Appointment", "Create")
+</p>
+<table class="table">
+    <tr>
+        
+        <th>
+            @Html.DisplayNameFor(model => model.email)
+        </th>      
+        <th>
+            @Html.DisplayNameFor(model => model.first_name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.last_name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.phone)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.service_name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.appointment_date)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.appointment_time)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.appointment_details)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.to_email)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.to_last_name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.to_first_name)
+        </th>
+        
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        
+        <td>
+            @Html.DisplayFor(modelItem => item.email)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.password)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.first_name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.last_name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.phone)
+        </td>
+        
+        <td>
+            @Html.DisplayFor(modelItem => item.service_name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.appointment_date)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.appointment_time)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.appointment_details)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.to_email)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.to_first_name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.to_last_name)
+        </td>
+
+        
+        @*<td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.ID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.ID })
+        </td>*@
+    </tr>
+}
+
+</table>

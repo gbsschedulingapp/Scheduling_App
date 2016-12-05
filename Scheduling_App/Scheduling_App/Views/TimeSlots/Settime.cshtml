@@ -1,0 +1,34 @@
+﻿@model Scheduling_App.ViewModels.TimeSlotsVM
+
+@{
+    ViewBag.Title = "Set Time Slots";
+}
+
+<h2>Time Slots Available</h2>
+
+<div id="time_slots">
+    Monday:    <input id="monday_to" class="time ui-timepicker-input" autocomplete="on" type="text"> -
+    <input id="monday_from" class="time ui-timepicker-input" autocomplete="on" type="text"> 
+    <input id="monday_holiday" type="checkbox" value="monday_holiday" name="monday_holiday"/>Holiday <br /><br />
+
+    Tuesday:   <input id="tuesday_to" class="time ui-timepicker-input" autocomplete="on" type="text"> -
+    <input id="tuesday_from" class="time ui-timepicker-input" autocomplete="on" type="text">
+    <input id="tuesday_holiday" type="checkbox" value="tuesday_holiday" name="tuesday_holiday" />Holiday <br /><br />
+
+    Wednesday: <input id="wednesday_to" class="time ui-timepicker-input" autocomplete="on" type="text"> -
+    <input id="wednesday_from" class="time ui-timepicker-input" autocomplete="on" type="text">
+    <input id="wednesday_holiday" type="checkbox" value="wednesday_holiday" name="wednesday_holiday" />Holiday   <br /><br />
+
+    Thursday:  <input id="thursday_to" class="time ui-timepicker-input" autocomplete="on" type="text"> -
+    <input id="thursday_from" class="time ui-timepicker-input" autocomplete="on" type="text">
+    <input id="thursday_holiday" type="checkbox" value="thursay_holiday" name="thursay_holiday" />Holiday <br /><br />
+
+    Friday:    <input id="friday_to" class="time ui-timepicker-input" autocomplete="on" type="text"> -
+    <input id="friday_from" class="time ui-timepicker-input" autocomplete="on" type="text">
+    <input id="friday_holiday" type="checkbox" value="friday_holiday" name="friday_holiday" />Holiday  <br /><br />
+
+
+
+</div>
+
+<input type="submit" name="submit_slots" value="Set Time " id="set_time" />

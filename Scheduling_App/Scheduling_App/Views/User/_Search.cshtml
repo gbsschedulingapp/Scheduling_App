@@ -1,0 +1,66 @@
+﻿@model IEnumerable<Scheduling_App.Models.User>
+
+
+
+<div class="box box-success box-solid">
+    <div class="box-header with-border">
+        <h3 class="box-title">Search Results</h3>
+
+        <div class="box-tools pull-right">
+            <button class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip" title="Collapse"><i class="fa fa-minus"></i></button>
+        </div>
+    </div>
+    <div class="box-body">
+
+        <div class="row">
+            <div class="col-md-12">
+                <table id="example1" class="table table-bordered">
+                    @if (Model != null)
+                    {
+                    <thead>
+                        <tr>
+
+                            <th>Name</th>
+                            <th>Email</th>
+                            <th>Phone</th>
+                            @*<th>Address</th>
+                            <th>Contact1</th>
+                            <th>Contact2</th>*@
+
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var u in Model)
+                        {
+
+                            <tr>
+                                @*<td style="text-align: center;"><a href="@Url.Action("AddpatientDescription", new { id = patient.Id })" class="patientDescription"  data-toggle="tooltip" title="add patient Details">
+                                        <img src="@Url.Content("~/StaticFiles/dist/img/add.png")" />
+                                    </a></td>*@
+                                <td><b>@u.username</b></td>
+                                <td>@u.email</td>
+                                <td>@u.phone</td>
+                                
+
+                            </tr>
+
+
+
+
+                        }
+
+
+
+                    </tbody>
+                    }
+                    else {
+                        <h1>No Result Found for "<span id="searchvalue" class="textchange"></span>"</h1>
+                    }
+                </table>
+            </div>
+        </div>
+    </div>
+    <!-- /.box-body -->
+
+</div>
+

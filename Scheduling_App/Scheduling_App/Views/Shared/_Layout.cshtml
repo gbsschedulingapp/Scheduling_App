@@ -1,0 +1,300 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - Scheduling</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                @Html.ActionLink("Scheduling App", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                    @*<li>@Html.ActionLink("About", "About", "Home")</li>
+                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>*@
+                    <li>@Html.ActionLink("Services", "Index", "AppServices")</li>
+                    <li>@Html.ActionLink("Appointment", "Index", "Appointment")</li>
+                    @if (!User.Identity.IsAuthenticated)
+                    {
+                        <li>@Html.ActionLink("Logout", "Logout", "User")</li>
+                    }
+                   
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+        <footer>
+            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+        </footer>
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+
+    <script type="text/javascript" src="~/Scripts/jquery.timepicker.js"></script>
+    <link rel="stylesheet" type="text/css" href="~/Content/jquery.timepicker.css" />
+    <script type="text/javascript" src="~/Scripts/bootstrap-datepicker.js"></script>
+    <script type="text/javascript">
+                   
+    </script>
+    <script>
+
+
+
+        if ($("#register-layout").length > 0) {
+
+            $("#flow_2").hide();
+            $("#flow_3").hide();
+            var username = $("#username");
+            var email = $("#email");
+            var password = $("#password");
+            var first_name = $("#first_name");
+            var last_name = $("#last_name");
+            var phone = $("#phone");
+
+
+            $("#flow_1_next").click(function () {
+                $("#username_error").html('');
+                $("#email_error").html('');
+                $("#password_error").html('');
+                //if ((username.val() != '') && (email.val() != '') && (password.val() != ''))
+                //{
+                $("#flow_1").hide();
+                $("#flow_2").show();
+                $("#flow_3").hide();
+                //}
+                //else {
+                //    if (username.val() == '') {
+                //        $("#username_error").html('Username is required');
+                //    }
+                //    if (email.val() == '') {
+                //       $("#email_error").html('Email is required');
+                //    }
+                //    if (password.val() == '') {
+                //       $("password_error").html('Password is required');
+                //    }
+                //}
+
+            });
+
+            $("#flow_2_next").click(function () {
+                $("#flow_1").hide();
+                $("#flow_2").hide();
+                $("#flow_3").show();
+            });
+        }
+        else {
+           console.log("not a register page");
+        }
+
+        if ($("#time_slots").length > 0)
+        {
+            var inFocus = false;
+
+            $('#time_slots input:text').focus(function () {
+
+                inFocus = $(this).attr('id');
+                time_input(inFocus);
+            });
+
+            function time_input(input_id) {
+                $('#' + input_id).timepicker({ 'step': 30 });
+                console.log("input: ", input_id)
+                $('#monday_from').timepicker({
+                    'step': function (i) {
+                        return (i % 2) ? 15 : 45;
+                    }
+                });
+            }
+
+            $('#monday_holiday').change(function () {
+                if ($(this).is(":checked")) {
+                    $("#monday_to").prop('disabled', true);
+                    $("#monday_from").prop('disabled', true);
+                }
+                else {
+                    $("#monday_to").prop('disabled', false);
+                    $("#monday_from").prop('disabled', false);
+                }
+
+            });
+
+            $('#tuesday_holiday').change(function () {
+                if ($(this).is(":checked")) {
+                    $("#tuesday_to").prop('disabled', true);
+                    $("#tuesday_from").prop('disabled', true);
+                }
+                else {
+                    $("#tuesday_to").prop('disabled', false);
+                    $("#tuesday_from").prop('disabled', false);
+                }
+
+            });
+
+            $('#wednesday_holiday').change(function () {
+                if ($(this).is(":checked")) {
+                    $("#wednesday_to").prop('disabled', true);
+                    $("#wednesday_from").prop('disabled', true);
+                }
+                else {
+                    $("#wednesday_to").prop('disabled', false);
+                    $("#wednesday_from").prop('disabled', false);
+                }
+
+            });
+
+            $('#thursday_holiday').change(function () {
+                if ($(this).is(":checked")) {
+                    $("#thursday_to").prop('disabled', true);
+                    $("#thursday_from").prop('disabled', true);
+                }
+                else {
+                    $("#thursday_to").prop('disabled', false);
+                    $("#thursday_from").prop('disabled', false);
+                }
+
+            });
+
+            $('#friday_holiday').change(function () {
+                if ($(this).is(":checked")) {
+                    $("#friday_to").prop('disabled', true);
+                    $("#friday_from").prop('disabled', true);
+                }
+                else {
+                    $("#friday_to").prop('disabled', false);
+                    $("#friday_from").prop('disabled', false);
+                }
+
+            });
+
+
+
+
+        }
+        else {
+            console.log("not a timeslot page")
+        }
+
+
+        $("#set_time").click(function () {
+
+        var monday_to = $("#monday_to").val();
+        var monday_from = $("#monday_from").val();
+        var tuesday_to = $("#tuesday_to").val();
+        var tuesday_from = $("#tuesday_from").val();
+        var wednesday_to = $("#wednesday_to").val();
+        var wednesday_from = $("#wednesday_from").val();
+        var thursday_to = $("#thursday_to").val();
+        var thursday_from = $("#thursday_from").val();
+        var friday_to = $("#friday_to").val();
+        var friday_from = $("#friday_from").val();
+
+        if ($("#monday_holiday").is(":checked")) {
+            // it is checked
+            monday_to = null;
+            monday_from = null;
+        }
+        if ($("#tuesday_holiday").is(":checked")) {
+            // it is checked
+            tuesday_to = "";
+            tuesday_from = "";
+        }
+        if ($("#wednesday_holiday").is(":checked")) {
+            // it is checked
+            wednesday_to = "";
+            wednesday_from = "";
+        }
+        if ($("#thursday_holiday").is(":checked")) {
+            // it is checked
+            thursday_to = "";
+            thursday_from = "";
+        }
+        if ($("#friday_holiday").is(":checked")) {
+            // it is checked
+            friday_to = "";
+            friday_from = "";
+        }
+
+        var data = [
+             monday_to, monday_from,
+             tuesday_to, tuesday_from,
+             wednesday_to, wednesday_from,
+             thursday_to, thursday_from,
+             friday_to, friday_from
+        ]
+        console.log(friday_to + friday_from);
+
+        $.ajax({
+            url: "@Url.Action("Settime")",
+            data: {data } ,
+            type: "post",
+            //cache: false,
+            //contentType: "application/json; charset=utf-8",
+            //dataType: "json",
+
+            success: function (response) {
+                if (response == "success") {
+                    window.location = "/appServices/Create/";
+                }
+                if (response == "LoginRequired") {
+                    window.location = "/User/Login/"
+                }
+            },
+            error: function (response) {
+                alert('error');
+            }
+        });
+    });
+
+
+    </script>
+    <script>
+
+        $(document).ready(function () {
+            $("#searchinput").on('keyup', function () {
+                ajax($(this).val());
+                //alert("asd");
+                //$("#searchvalue").text($(this).val());
+            });
+        });
+        
+     function ajax(value) {
+         $.ajax({
+             url: "/user/searchresults?value=" + value,
+             //data: {data } ,
+             type: "post",
+             //cache: false,
+             //contentType: "application/json; charset=utf-8",
+             //dataType: "json",
+
+             success: function (response) {
+                
+                 $("#searched").html(response);
+                 $("#searched").css("display", "block");
+                
+             },
+             error: function (response) {
+                 alert('error');
+             }
+         });
+     }
+
+
+    </script>
+</body>
+</html>

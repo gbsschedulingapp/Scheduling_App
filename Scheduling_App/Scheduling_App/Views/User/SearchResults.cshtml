@@ -1,0 +1,27 @@
+﻿@model IEnumerable<Scheduling_App.Models.User>
+
+@{
+    ViewBag.Title = "SearchResults";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>SearchResults</h2>
+
+@using (Html.BeginForm())
+{
+    <div id="search">
+
+        <p>
+            Search: <input type="text" name="searchinput" id="searchinput" /> <br />
+            
+        </p>
+
+        <section id="searched">
+
+        </section>
+    </div>
+
+}
+
+ 
+
