@@ -26,5 +26,11 @@ namespace Scheduling_App.Controllers
 
             return View();
         }
+        public ActionResult AdminBlank()
+        {
+            ViewBag.Message = "Your contact page.";
+
+            return View();
+        }
     }
 }

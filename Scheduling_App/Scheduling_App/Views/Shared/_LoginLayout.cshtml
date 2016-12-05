@@ -19,20 +19,20 @@
     <link href="@Url.Content("~/StaticFiles/vendors/animate.css/animate.min.css")" rel="stylesheet">
 
     <!-- Custom Theme Style -->
-    <link href="@Url.Content("/StaticFiles/build/css/custom.min.css")" rel="stylesheet">
+    <link href="@Url.Content("~/StaticFiles/build/css/custom.min.css")" rel="stylesheet">
 
 </head>
 <body class="login">
     <div>
         @RenderBody()
     </div>
+
+    @*Common Script links Goes here*@
+    <!-- jQuery -->
+    <script src="@Url.Content("~/StaticFiles/vendors/jquery/dist/jquery.min.js")"></script>
+    
+    @*Page Script Scripts/links Goes here*@
+    @RenderSection("scripts", required: false)
+
 </body>
-
-
-@*Common Script links Goes here*@
-
-@Scripts.Render("~/bundles/jquery")
-
-@*Page Script Scripts/links Goes here*@
-@RenderSection("scripts", required: false)
 </html>
